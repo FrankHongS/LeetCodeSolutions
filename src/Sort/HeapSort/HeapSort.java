@@ -1,0 +1,58 @@
+package Sort.HeapSort;
+
+import util.ArraysUtil;
+
+/**
+ * Created by Frank_Hon on 2018-03-08 (maybe, copied from the previous).
+ * E-mail: frank_hon@foxmail.com
+ */
+public class HeapSort {
+
+
+    public void heapSort(int[] array) {
+        if (array == null || array.length <= 1) {
+            return;
+        }
+
+        buildMaxHeap(array);
+
+        for (int i = array.length - 1; i >= 1; i--) {
+            ArraysUtil.exchangeElements(array, 0, i);
+            maxHeap(array, i, 0);
+        }
+    }
+
+    private void buildMaxHeap(int[] array) {
+        if (array == null || array.length <= 1) {
+            return;
+        }
+
+        int half = array.length / 2;
+        for (int i = half - 1; i >= 0; i--) {
+            maxHeap(array, array.length, i);
+        }
+    }
+
+    private void maxHeap(int[] array, int heapSize, int index) {
+        int left = index * 2 + 1;
+        int right = index * 2 + 2;
+
+        int largest = index;
+
+        if (left < heapSize && array[left] > array[largest]) {
+            largest = left;
+        }
+
+        if (right < heapSize && array[right] > array[largest]) {
+            largest = right;
+        }
+
+        if (index != largest) {
+            ArraysUtil.exchangeElements(array, index, largest);
+
+            maxHeap(array, heapSize, largest);
+        }
+
+    }
+
+}
