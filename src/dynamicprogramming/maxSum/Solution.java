@@ -1,5 +1,8 @@
 package dynamicprogramming.maxSum;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Solution {
 
     public static void main(String[] args) {
@@ -8,7 +11,47 @@ public class Solution {
         int[] array =
 //                {7, 6, 8, 6, 7}
                 {1, -2, 3, 10, -4, 7, 2, -5};
-        System.out.println(solution.maxSum(array));
+//        System.out.println(solution.maxSum(array));
+
+        System.out.println(solution.maxSumContinuous(array));
+
+        
+                
+                
+    }
+
+    // 数组中连续元素组成的子数组的最大和
+    public int maxSumContinuous(int[] array) {
+
+        if (array == null || array.length == 0) {
+            return 0;
+        }
+
+        int sum = 0;
+        int greatest = Integer.MIN_VALUE;
+
+        int start = 0, end = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (sum <= 0) {
+                sum = array[i];
+                if (sum > greatest) {
+                    start = i;
+                }
+            } else {
+                sum += array[i];
+            }
+
+            if (sum > greatest) {
+                end = i;
+                greatest = sum;
+            }
+        }
+
+        System.out.println("start: " + start + " end: " + end);
+
+        return greatest;
+
     }
 
     // 数组中非连续元素组成的子数组的最大和
