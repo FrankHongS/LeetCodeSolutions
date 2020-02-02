@@ -1,4 +1,4 @@
-package other.uglynumber;
+package Others.uglynumber;
 
 public class Solution {
 
