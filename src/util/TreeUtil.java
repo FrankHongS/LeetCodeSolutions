@@ -9,10 +9,10 @@ import util.entity.TreeNode;
 public class TreeUtil {
 
     /**
-     * All binary trees can transfer into complete binary tree.
+     * All binary trees can transfer into complete binary Tree.
      * If not, set the empty node null
      *
-     * @param data tree's value array
+     * @param data Tree's value array
      * @return root node
      */
     public static TreeNode buildCompleteBinaryTree(Integer[] data) {
