@@ -1,4 +1,4 @@
-package tree.VerticalTraversal;
+package Tree.VerticalTraversal;
 
 import util.TreeUtil;
 import util.entity.TreeNode;
@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * Vertical Order Traversal of a Binary Tree
  *
- * Given a binary tree, return the vertical order traversal of its nodes values.
+ * Given a binary Tree, return the vertical order traversal of its nodes values.
  *
  * For each node at position (X, Y), its left and right children respectively will be at positions (X-1, Y-1) and (X+1, Y-1).
  *
