@@ -1,4 +1,4 @@
-package tree.Problem34;
+package Tree.Problem34;
 
 import util.TreeUtil;
 import util.entity.TreeNode;
