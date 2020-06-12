@@ -8,6 +8,14 @@ import util.ArraysUtil;
  */
 public class HeapSort {
 
+    public static void main(String[] args) {
+        int[] array={5,4,1,8,9};
+        HeapSort heapSort=new HeapSort();
+        heapSort.heapSort(array);
+        for (int i:array) {
+            System.out.print(i+",");
+        }
+    }
 
     public void heapSort(int[] array) {
         if (array == null || array.length <= 1) {
@@ -49,7 +57,6 @@ public class HeapSort {
 
         if (index != largest) {
             ArraysUtil.exchangeElements(array, index, largest);
-
             maxHeap(array, heapSize, largest);
         }
 

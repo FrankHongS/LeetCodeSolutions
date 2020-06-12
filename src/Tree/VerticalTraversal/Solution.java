@@ -23,7 +23,6 @@ public class Solution {
 
     public static void main(String[] args) {
         TreeNode root= TreeUtil.buildCompleteBinaryTree(new Integer[]{1,2,3,4,5,6,7});
-
         Solution solution=new Solution();
         System.out.println(solution.verticalTraversal(root));
 
@@ -78,14 +77,12 @@ public class Solution {
 
         @Override
         public int compareTo(CoordinateNode o) {
-
             if (x == o.x) {
                 if (y == o.y) {
                     return val - o.val;
                 }
                 return o.y - y;
             }
-
             return x - o.x;
         }
     }
