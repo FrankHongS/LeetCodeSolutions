@@ -11,6 +11,8 @@ import java.util.LinkedList;
  * <p>
  * 使用非递归的方式实现Tree的中序、前序、后序遍历
  * 递归方法利用了函数栈来保存信息，如果用自己申请的数据结构代替函数栈，也能实现相同功能
+ * <p>
+ * 尾递归改成迭代写法
  */
 public class Solution {
 
@@ -20,11 +22,11 @@ public class Solution {
 //        solution.traversalTreeInOrderByRecursive(root);
 //        solution.traversalTreeInOrder(root);
 
-//        solution.traversalTreePreOrderByRecursive(root);
-//        solution.traversalTreePreOrder(root);
+        solution.traversalTreePreOrderByRecursive(root);
+        solution.traversalTreePreOrder(root);
 
 //        solution.traversalTreePostOrderByRecursive(root);
-        solution.traversalTreePostOrder(root);
+//        solution.traversalTreePostOrder(root);
     }
 
     public void traversalTreeInOrderByRecursive(TreeNode root) {
@@ -42,26 +44,26 @@ public class Solution {
         }
         LinkedList<TreeNode> treeNodes = new LinkedList<>();
         // 常规思路，模仿递归的逻辑
-//        while (root != null) {
-//            treeNodes.add(root);
-//            root = root.left;
-//            while (root == null && !treeNodes.isEmpty()) {
-//                TreeNode node = treeNodes.removeLast();
-//                System.out.println(node.val);
-//                root = node.right;
-//            }
-//        }
-        // 很巧妙，很难想
-        while (root != null || !treeNodes.isEmpty()) {
-            if (root != null) {
-                treeNodes.add(root);
-                root = root.left;
-            } else {
+        while (root != null) {
+            treeNodes.add(root);
+            root = root.left;
+            while (root == null && !treeNodes.isEmpty()) {
                 TreeNode node = treeNodes.removeLast();
                 System.out.println(node.val);
                 root = node.right;
             }
         }
+        // 很巧妙，很难想
+//        while (root != null || !treeNodes.isEmpty()) {
+//            if (root != null) {
+//                treeNodes.add(root);
+//                root = root.left;
+//            } else {
+//                TreeNode node = treeNodes.removeLast();
+//                System.out.println(node.val);
+//                root = node.right;
+//            }
+//        }
     }
 
     public void traversalTreePreOrderByRecursive(TreeNode root) {
@@ -87,14 +89,26 @@ public class Solution {
 //                root = node.right;
 //            }
 //        }
-        while (root != null || !treeNodes.isEmpty()) {
-            if (root != null) {
-                treeNodes.add(root);
-                System.out.println(root.val);
-                root = root.left;
-            } else {
-                TreeNode node = treeNodes.removeLast();
-                root = node.right;
+//        while (root != null || !treeNodes.isEmpty()) {
+//            if (root != null) {
+//                treeNodes.add(root);
+//                System.out.println(root.val);
+//                root = root.left;
+//            } else {
+//                TreeNode node = treeNodes.removeLast();
+//                root = node.right;
+//            }
+//        }
+        treeNodes.add(root);
+        while (!treeNodes.isEmpty()) {
+            root = treeNodes.removeLast();
+            System.out.println(root.val);
+
+            if (root.right != null) {
+                treeNodes.add(root.right);
+            }
+            if (root.left != null) {
+                treeNodes.add(root.left);
             }
         }
     }
@@ -108,27 +122,29 @@ public class Solution {
         System.out.println(root.val);
     }
 
+    // 前序和后序都能用这种形式，一个栈遍历，一个列表存储目标值（下面的第二个栈可以用列表替代）
     public void traversalTreePostOrder(TreeNode root) {
         if (root == null) {
             return;
         }
-        LinkedList<TreeNode> treeNodes = new LinkedList<>();
-        while (root != null) {
-            treeNodes.add(root);
-            root = root.left;
-            if (root == null) {
-
+        LinkedList<TreeNode> treeNodes1 = new LinkedList<>();
+        LinkedList<TreeNode> treeNodes2 = new LinkedList<>();
+        treeNodes1.add(root);
+        while (!treeNodes1.isEmpty()) {
+            root = treeNodes1.removeLast();
+            treeNodes2.add(root);
+            if (root.left != null) {
+                treeNodes1.add(root.left);
+            }
+            if (root.right != null) {
+                treeNodes1.add(root.right);
             }
         }
-//        while (root != null || !treeNodes.isEmpty()) {
-//            if (root != null) {
-//                treeNodes.add(root);
-//                System.out.println(root.val);
-//                root = root.left;
-//            } else {
-//                TreeNode node = treeNodes.removeLast();
-//                root = node.right;
-//            }
-//        }
+        while (!treeNodes2.isEmpty()) {
+            TreeNode node = treeNodes2.removeLast();
+            System.out.println(node.val);
+        }
     }
+
+    //todo 尾递归
 }
