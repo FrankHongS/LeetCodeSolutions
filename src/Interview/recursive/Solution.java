@@ -123,6 +123,8 @@ public class Solution {
     }
 
     // 前序和后序都能用这种形式，一个栈遍历，一个列表存储目标值（下面的第二个栈可以用列表替代）
+    // 尾递归可以不用栈，而用迭代来实现
+    // 左右中 和 中右左 的遍历方式，最后得出的序列相反
     public void traversalTreePostOrder(TreeNode root) {
         if (root == null) {
             return;
