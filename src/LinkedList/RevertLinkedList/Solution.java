@@ -9,31 +9,21 @@ import util.entity.ListNode;
  */
 public class Solution {
     public static void main(String[] args) {
-        Solution solution=new Solution();
-        ListNode l1= LinkedListUtil.buildLinkedList(1,2,3);
+        Solution solution = new Solution();
+        ListNode l1 = LinkedListUtil.buildLinkedList(1, 2, 3);
         LinkedListUtil.printLinkedList(l1);
-        ListNode target=solution.revert(l1);
+        ListNode target = solution.revert(l1);
         LinkedListUtil.printLinkedList(target);
     }
 
     private ListNode revert(ListNode head) {
-
-        if (head == null) {
-            return null;
+        ListNode newHead = null;
+        while (head != null) {
+            ListNode temp = head.next;//保存旧链表除首元素外剩下的值
+            head.next = newHead;//将旧链表的首元素连接到新链表的头部
+            newHead = head;//更新新链表头部（首元素）
+            head = temp;//更新旧链表头部（首元素）
         }
-
-        ListNode temp01 = head.next;
-        head.next = null;
-
-        ListNode last=head;
-
-        while (temp01 != null) {
-            ListNode temp02 = temp01.next;
-            temp01.next = last;
-            last = temp01;
-            temp01 = temp02;
-        }
-
-        return last;
+        return newHead;
     }
 }

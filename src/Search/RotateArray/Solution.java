@@ -3,6 +3,8 @@ package Search.RotateArray;
 /**
  * Created by Frank_Hon on 2019-06-11 23:49.
  * E-mail: frank_hon@foxmail.com
+ * 二分搜索旋转数组中的目标元素，返回对应的索引，
+ * {3,4,5,1,2}为{1,2,3,4,5}的一个旋转数组
  */
 public class Solution {
 
