@@ -1,6 +1,6 @@
-package util;
+package Util;
 
-import util.entity.TreeNode;
+import Util.entity.TreeNode;
 
 /**
  * Created by Frank_Hon on 2018-03-08 (maybe, copied from the previous).

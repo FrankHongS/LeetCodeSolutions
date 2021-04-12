@@ -1,10 +1,9 @@
 package Tree.Problem34;
 
-import util.TreeUtil;
-import util.entity.TreeNode;
+import Util.TreeUtil;
+import Util.entity.TreeNode;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 

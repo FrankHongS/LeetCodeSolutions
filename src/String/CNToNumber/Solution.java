@@ -1,4 +1,4 @@
-package Strings.CNToNumber;
+package String.CNToNumber;
 
 public class Solution {
     private static final CNNumber[] CN_NUMBER_ARRAY = {

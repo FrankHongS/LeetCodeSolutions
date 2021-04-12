@@ -1,4 +1,4 @@
-package util.entity;
+package Util.entity;
 
 /**
  * Created by Frank_Hon on 2019-06-10 23:05.

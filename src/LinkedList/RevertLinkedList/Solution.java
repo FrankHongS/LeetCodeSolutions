@@ -1,7 +1,7 @@
 package LinkedList.RevertLinkedList;
 
-import util.LinkedListUtil;
-import util.entity.ListNode;
+import Util.LinkedListUtil;
+import Util.entity.ListNode;
 
 /**
  * Created by Frank_Hon on 2019-07-22 00:41.

@@ -1,6 +1,6 @@
-package Strings.SubString;
+package String.SubString;
 
-import util.Util;
+import Util.Util;
 
 public class Solution {
 

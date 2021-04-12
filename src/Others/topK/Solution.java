@@ -1,6 +1,6 @@
 package Others.topK;
 
-import util.ArraysUtil;
+import Util.ArraysUtil;
 
 public class Solution {
 

@@ -1,7 +1,7 @@
 package LinkedList.CycleList;
 
-import util.LinkedListUtil;
-import util.entity.ListNode;
+import Util.LinkedListUtil;
+import Util.entity.ListNode;
 
 /**
  * Linked List Cycle 2

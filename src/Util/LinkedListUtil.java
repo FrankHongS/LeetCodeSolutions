@@ -1,6 +1,6 @@
-package util;
+package Util;
 
-import util.entity.ListNode;
+import Util.entity.ListNode;
 
 /**
  * Created by Frank_Hon on 2019-06-10 23:27.

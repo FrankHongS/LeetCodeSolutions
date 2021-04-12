@@ -1,7 +1,7 @@
 package Interview.recursive;
 
-import util.TreeUtil;
-import util.entity.TreeNode;
+import Util.TreeUtil;
+import Util.entity.TreeNode;
 
 import java.util.LinkedList;
 
@@ -20,12 +20,15 @@ public class Solution {
         TreeNode root = TreeUtil.buildCompleteBinaryTree(new Integer[]{1, 2, 3, 4, 5, 6, 7});
         Solution solution = new Solution();
 //        solution.traversalTreeInOrderByRecursive(root);
+//        System.out.println();
 //        solution.traversalTreeInOrder(root);
 
-        solution.traversalTreePreOrderByRecursive(root);
-        solution.traversalTreePreOrder(root);
+//        solution.traversalTreePreOrderByRecursive(root);
+//        System.out.println();
+//        solution.traversalTreePreOrder(root);
 
 //        solution.traversalTreePostOrderByRecursive(root);
+//        System.out.println();
 //        solution.traversalTreePostOrder(root);
     }
 
@@ -34,7 +37,7 @@ public class Solution {
             return;
         }
         traversalTreeInOrderByRecursive(root.left);
-        System.out.println(root.val);
+        System.out.print(root.val);
         traversalTreeInOrderByRecursive(root.right);
     }
 
@@ -45,22 +48,22 @@ public class Solution {
         LinkedList<TreeNode> treeNodes = new LinkedList<>();
         // 常规思路，模仿递归的逻辑
         while (root != null) {
-            treeNodes.add(root);
+            treeNodes.push(root);
             root = root.left;
             while (root == null && !treeNodes.isEmpty()) {
-                TreeNode node = treeNodes.removeLast();
-                System.out.println(node.val);
+                TreeNode node = treeNodes.pop();
+                System.out.print(node.val);
                 root = node.right;
             }
         }
         // 很巧妙，很难想
 //        while (root != null || !treeNodes.isEmpty()) {
 //            if (root != null) {
-//                treeNodes.add(root);
+//                treeNodes.push(root);
 //                root = root.left;
 //            } else {
-//                TreeNode node = treeNodes.removeLast();
-//                System.out.println(node.val);
+//                TreeNode node = treeNodes.pop();
+//                System.out.print(node.val);
 //                root = node.right;
 //            }
 //        }
@@ -70,7 +73,7 @@ public class Solution {
         if (root == null) {
             return;
         }
-        System.out.println(root.val);
+        System.out.print(root.val);
         traversalTreePreOrderByRecursive(root.left);
         traversalTreePreOrderByRecursive(root.right);
     }
@@ -101,14 +104,14 @@ public class Solution {
 //        }
         treeNodes.add(root);
         while (!treeNodes.isEmpty()) {
-            root = treeNodes.removeLast();
-            System.out.println(root.val);
+            root = treeNodes.pop();
+            System.out.print(root.val);
 
             if (root.right != null) {
-                treeNodes.add(root.right);
+                treeNodes.push(root.right);
             }
             if (root.left != null) {
-                treeNodes.add(root.left);
+                treeNodes.push(root.left);
             }
         }
     }
@@ -119,7 +122,7 @@ public class Solution {
         }
         traversalTreePostOrderByRecursive(root.left);
         traversalTreePostOrderByRecursive(root.right);
-        System.out.println(root.val);
+        System.out.print(root.val);
     }
 
     // 前序和后序都能用这种形式，一个栈遍历，一个列表存储目标值（下面的第二个栈可以用列表替代）
@@ -133,18 +136,18 @@ public class Solution {
         LinkedList<TreeNode> treeNodes2 = new LinkedList<>();
         treeNodes1.add(root);
         while (!treeNodes1.isEmpty()) {
-            root = treeNodes1.removeLast();
-            treeNodes2.add(root);
+            root = treeNodes1.pop();
+            treeNodes2.push(root);
             if (root.left != null) {
-                treeNodes1.add(root.left);
+                treeNodes1.push(root.left);
             }
             if (root.right != null) {
-                treeNodes1.add(root.right);
+                treeNodes1.push(root.right);
             }
         }
         while (!treeNodes2.isEmpty()) {
-            TreeNode node = treeNodes2.removeLast();
-            System.out.println(node.val);
+            TreeNode node = treeNodes2.pop();
+            System.out.print(node.val);
         }
     }
 

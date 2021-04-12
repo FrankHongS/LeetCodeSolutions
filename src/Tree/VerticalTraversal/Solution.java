@@ -1,7 +1,7 @@
 package Tree.VerticalTraversal;
 
-import util.TreeUtil;
-import util.entity.TreeNode;
+import Util.TreeUtil;
+import Util.entity.TreeNode;
 
 import java.util.*;
 

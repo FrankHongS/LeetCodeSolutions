@@ -1,4 +1,4 @@
-package Strings.SubString;
+package String.SubString;
 
 public class Solution03 {
 

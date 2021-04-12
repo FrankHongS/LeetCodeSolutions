@@ -1,7 +1,7 @@
 package LinkedList.Merge2List;
 
-import util.LinkedListUtil;
-import util.entity.ListNode;
+import Util.LinkedListUtil;
+import Util.entity.ListNode;
 
 /**
  * Merge two sorted list
