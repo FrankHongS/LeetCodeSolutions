@@ -1,7 +1,7 @@
 package LinkedList.Merge2List;
 
-import Util.LinkedListUtil;
-import Util.entity.ListNode;
+import util.LinkedListUtil;
+import util.entity.ListNode;
 
 /**
  * Merge two sorted list
@@ -41,7 +41,7 @@ public class Solution {
         ListNode target = temp;
 
         while (l1 != null && l2 != null) {
-            if (l1.val < l2.val) {
+            if (l1.value < l2.value) {
                 temp.next = l1;
                 l1 = l1.next;
             } else {

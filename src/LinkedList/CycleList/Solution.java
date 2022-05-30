@@ -1,7 +1,7 @@
 package LinkedList.CycleList;
 
-import Util.LinkedListUtil;
-import Util.entity.ListNode;
+import util.LinkedListUtil;
+import util.entity.ListNode;
 
 /**
  * Linked List Cycle 2
@@ -33,14 +33,11 @@ public class Solution {
 
     // O(n)
     public boolean hasCycle(ListNode root) {
-        ListNode temp;
-
         while (root != null) {
             if (root.next == root) {
                 return true;
             }
-
-            temp = root.next;
+            ListNode temp = root.next;
             root.next = root;
             root = temp;
         }
@@ -48,4 +45,33 @@ public class Solution {
         return false;
     }
 
+    //找到环的入口节点O(n^2)
+    public ListNode detectCycle(ListNode head) {
+
+        int count = 0;
+        ListNode p, q;
+
+        p = head;
+        if (p == null)
+            return null;
+        p = p.next;
+
+        while (p != null) {
+
+            count++;
+
+            q = head;
+
+            for (int i = 0; i < count; i++) {
+
+                if (p == q) {
+                    return p;
+                }
+                q = q.next;
+            }
+            p = p.next;
+        }
+
+        return null;
+    }
 }

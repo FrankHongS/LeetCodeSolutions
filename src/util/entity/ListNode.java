@@ -1,4 +1,4 @@
-package Util.entity;
+package util.entity;
 
 /**
  * Created by Frank_Hon on 2019-06-10 23:05.
@@ -6,10 +6,10 @@ package Util.entity;
  */
 public class ListNode {
 
-    public int val;
+    public int value;
     public ListNode next;
 
-    public ListNode(int val) {
-        this.val = val;
+    public ListNode(int value) {
+        this.value = value;
     }
 }

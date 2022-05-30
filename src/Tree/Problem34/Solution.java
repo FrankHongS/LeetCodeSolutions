@@ -1,7 +1,7 @@
 package Tree.Problem34;
 
-import Util.TreeUtil;
-import Util.entity.TreeNode;
+import util.TreeUtil;
+import util.entity.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -11,7 +11,7 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        TreeNode root = TreeUtil.buildCompleteBinaryTree(new Integer[]{10, 5, 12, 4, 7, null, null});
+        TreeNode root = TreeUtil.buildCompleteBinaryTree(10, 5, 12, 4, 7, null, null);
 
         System.out.println(solution.findShortestPath(root, 22));
     }
@@ -34,7 +34,7 @@ public class Solution {
             return;
         }
 
-        list.push(root.val);
+        list.push(root.value);
 
         if (root.left == null && root.right == null) {
             int sum = sumLinkedList(list);

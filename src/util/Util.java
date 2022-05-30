@@ -1,4 +1,6 @@
-package Util;
+package util;
+
+import java.util.List;
 
 public class Util {
 
@@ -14,4 +16,13 @@ public class Util {
         System.out.println();
     }
 
+    public static int sum(List<Integer> list) {
+        int sum = 0;
+        if (list != null) {
+            for (int i : list) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
 }

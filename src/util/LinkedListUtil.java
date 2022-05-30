@@ -1,6 +1,6 @@
-package Util;
+package util;
 
-import Util.entity.ListNode;
+import util.entity.ListNode;
 
 /**
  * Created by Frank_Hon on 2019-06-10 23:27.
@@ -16,9 +16,9 @@ public class LinkedListUtil {
 
         while (root != null) {
             if (root.next == null) {
-                System.out.println(root.val);
+                System.out.println(root.value);
             } else {
-                System.out.print(root.val + " -> ");
+                System.out.print(root.value + " -> ");
             }
 
             root = root.next;
@@ -50,7 +50,7 @@ public class LinkedListUtil {
             return;
         }
 
-        System.out.print(p.val + "->");
+        System.out.print(p.value + "->");
         p = p.next;
 
         int count = 0;
@@ -62,16 +62,16 @@ public class LinkedListUtil {
 
             for (int i = 0; i < count; i++) {
                 if (p == q) {
-                    System.out.println("Cycle:" + p.val + "\n");
+                    System.out.println("Cycle:" + p.value + "\n");
                     return;
                 }
                 q = q.next;
             }
 
             if (p.next == null) {
-                System.out.print(p.val + "\n");
+                System.out.print(p.value + "\n");
             } else {
-                System.out.print(p.val + "->");
+                System.out.print(p.value + "->");
             }
 
             p = p.next;
@@ -106,7 +106,18 @@ public class LinkedListUtil {
         return output;
     }
 
-    private static ListNode indexOf(ListNode head, int index) {
+    public static ListNode revert(ListNode head) {
+        ListNode newHead = null;
+        while (head != null) {
+            ListNode temp = head.next;//保存旧链表除首元素外剩下的值
+            head.next = newHead;//将旧链表的首元素连接到新链表的头部
+            newHead = head;//更新新链表头部（首元素）
+            head = temp;//更新旧链表头部（首元素）
+        }
+        return newHead;
+    }
+
+    public static ListNode indexOf(ListNode head, int index) {
         int count = 0;
         while (head != null) {
             if (count == index) {

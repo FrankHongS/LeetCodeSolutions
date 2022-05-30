@@ -1,7 +1,7 @@
 package Tree.BFS;
 
-import Util.TreeUtil;
-import Util.entity.TreeNode;
+import util.TreeUtil;
+import util.entity.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -45,7 +45,7 @@ public class Solution {
             for (int i = 0; i < size; i++) {
                 TreeNode temp = cache.poll();
 
-                levelList.add(temp.val);
+                levelList.add(temp.value);
 
                 if (temp.left != null)
                     cache.offer(temp.left);
@@ -70,7 +70,7 @@ public class Solution {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode temp = queue.removeFirst();
-                System.out.print(temp.val);
+                System.out.print(temp.value);
                 if (temp.left != null) {
                     queue.add(temp.left);
                 }

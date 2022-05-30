@@ -1,7 +1,7 @@
 package Interview.recursive;
 
-import Util.TreeUtil;
-import Util.entity.TreeNode;
+import util.TreeUtil;
+import util.entity.TreeNode;
 
 import java.util.LinkedList;
 
@@ -19,9 +19,9 @@ public class Solution {
     public static void main(String[] args) {
         TreeNode root = TreeUtil.buildCompleteBinaryTree(new Integer[]{1, 2, 3, 4, 5, 6, 7});
         Solution solution = new Solution();
-//        solution.traversalTreeInOrderByRecursive(root);
-//        System.out.println();
-//        solution.traversalTreeInOrder(root);
+        solution.traversalTreeInOrderByRecursive(root);
+        System.out.println();
+        solution.traversalTreeInOrder(root);
 
 //        solution.traversalTreePreOrderByRecursive(root);
 //        System.out.println();
@@ -37,7 +37,7 @@ public class Solution {
             return;
         }
         traversalTreeInOrderByRecursive(root.left);
-        System.out.print(root.val);
+        System.out.print(root.value);
         traversalTreeInOrderByRecursive(root.right);
     }
 
@@ -52,7 +52,7 @@ public class Solution {
             root = root.left;
             while (root == null && !treeNodes.isEmpty()) {
                 TreeNode node = treeNodes.pop();
-                System.out.print(node.val);
+                System.out.print(node.value);
                 root = node.right;
             }
         }
@@ -73,7 +73,7 @@ public class Solution {
         if (root == null) {
             return;
         }
-        System.out.print(root.val);
+        System.out.print(root.value);
         traversalTreePreOrderByRecursive(root.left);
         traversalTreePreOrderByRecursive(root.right);
     }
@@ -102,10 +102,10 @@ public class Solution {
 //                root = node.right;
 //            }
 //        }
-        treeNodes.add(root);
+        treeNodes.push(root);
         while (!treeNodes.isEmpty()) {
             root = treeNodes.pop();
-            System.out.print(root.val);
+            System.out.print(root.value);
 
             if (root.right != null) {
                 treeNodes.push(root.right);
@@ -122,7 +122,7 @@ public class Solution {
         }
         traversalTreePostOrderByRecursive(root.left);
         traversalTreePostOrderByRecursive(root.right);
-        System.out.print(root.val);
+        System.out.print(root.value);
     }
 
     // 前序和后序都能用这种形式，一个栈遍历，一个列表存储目标值（下面的第二个栈可以用列表替代）
@@ -147,7 +147,7 @@ public class Solution {
         }
         while (!treeNodes2.isEmpty()) {
             TreeNode node = treeNodes2.pop();
-            System.out.print(node.val);
+            System.out.print(node.value);
         }
     }
 

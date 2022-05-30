@@ -1,7 +1,7 @@
 package BookOffer.P37;
 
-import Util.TreeUtil;
-import Util.entity.TreeNode;
+import util.TreeUtil;
+import util.entity.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,7 @@ public class Solution {
             return;
         }
         if (root != null) {
-            container.add(root.val);
+            container.add(root.value);
             serializeTree(root.left, container);
             serializeTree(root.right, container);
         } else {

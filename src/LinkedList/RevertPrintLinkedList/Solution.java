@@ -1,8 +1,7 @@
 package LinkedList.RevertPrintLinkedList;
 
-import Util.LinkedListUtil;
-import Util.entity.ListNode;
-import Util.entity.TreeNode;
+import util.LinkedListUtil;
+import util.entity.ListNode;
 
 import java.util.LinkedList;
 
@@ -33,7 +32,7 @@ public class Solution {
 
         while (!stack.isEmpty()) {
             ListNode cur = stack.pop();
-            System.out.print(cur.val);
+            System.out.print(cur.value);
         }
     }
 
@@ -41,7 +40,7 @@ public class Solution {
     private void revertPrintByRecursion(ListNode head) {
         if (head != null) {
             revertPrintByRecursion(head.next);
-            System.out.print(head.val);
+            System.out.print(head.value);
         }
     }
 }

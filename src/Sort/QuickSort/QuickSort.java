@@ -1,6 +1,6 @@
 package Sort.QuickSort;
 
-import Util.ArraysUtil;
+import util.ArraysUtil;
 
 /**
  * Created by Frank_Hon on 2018-03-08 (maybe, copied from the previous).

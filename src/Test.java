@@ -24,7 +24,8 @@ public class Test {
 
     public static void main(String[] args) {
         A a1 = new A("Joey", 28);
-        A a2 = new A("Joey", 28);
+        A a2 = new A("Joey", 29);
+        A a3 = new A("Joey", 30);
 
         System.out.println(a1.hashCode());
         System.out.println(a2.hashCode());
@@ -34,9 +35,12 @@ public class Test {
 
         Map<A, Integer> map = new HashMap<>();
         map.put(a1, 2);
+        map.put(a2, 3);
+        map.put(a3, 3);
         // HashMap调用get时，首先通过key的hashCode找到bucket，然后遍历链表或红黑树（长度大于8用红黑树存储，否则用链表），
         // 找到key值相同的Entry（通过调用key的equals方法），如果没有返回null
         System.out.println(map.get(a2));
+        System.out.println(map.keySet());
     }
 
     static class A {
@@ -72,6 +76,11 @@ public class Test {
             }
 
             return false;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(age);
         }
     }
 

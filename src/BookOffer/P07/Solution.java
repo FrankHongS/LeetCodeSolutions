@@ -1,7 +1,7 @@
-package BookOffer.P7;
+package BookOffer.P07;
 
-import Util.TreeUtil;
-import Util.entity.TreeNode;
+import util.TreeUtil;
+import util.entity.TreeNode;
 
 import java.util.Arrays;
 

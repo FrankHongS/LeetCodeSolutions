@@ -1,6 +1,6 @@
-package Util;
+package util;
 
-import Util.entity.TreeNode;
+import util.entity.TreeNode;
 
 /**
  * Created by Frank_Hon on 2018-03-08 (maybe, copied from the previous).
@@ -15,7 +15,7 @@ public class TreeUtil {
      * @param data Tree's value array
      * @return root node
      */
-    public static TreeNode buildCompleteBinaryTree(Integer[] data) {
+    public static TreeNode buildCompleteBinaryTree(Integer... data) {
         if (data == null || data.length == 0) {
             return null;
         }
@@ -44,14 +44,14 @@ public class TreeUtil {
     public static void printTreeInOrder(TreeNode target) {
         if (target != null) {
             printTreeInOrder(target.left);
-            System.out.print(target.val + ",");
+            System.out.print(target.value + ",");
             printTreeInOrder(target.right);
         }
     }
 
     public static void printTreePreOrder(TreeNode target) {
         if (target != null) {
-            System.out.print(target.val + ",");
+            System.out.print(target.value + ",");
             printTreePreOrder(target.left);
             printTreePreOrder(target.right);
         }
@@ -61,7 +61,7 @@ public class TreeUtil {
         if (target != null) {
             printTreePostOrder(target.left);
             printTreePostOrder(target.right);
-            System.out.print(target.val + ",");
+            System.out.print(target.value + ",");
         }
     }
 

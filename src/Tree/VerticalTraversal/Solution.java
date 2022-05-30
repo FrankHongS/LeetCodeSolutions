@@ -1,7 +1,7 @@
 package Tree.VerticalTraversal;
 
-import Util.TreeUtil;
-import Util.entity.TreeNode;
+import util.TreeUtil;
+import util.entity.TreeNode;
 
 import java.util.*;
 
@@ -59,7 +59,7 @@ public class Solution {
     private void traversal(TreeNode root, int x, int y, List<CoordinateNode> nodeList) {
         if (root == null)
             return;
-        nodeList.add(new CoordinateNode(x, y, root.val));
+        nodeList.add(new CoordinateNode(x, y, root.value));
         traversal(root.left, x - 1, y - 1, nodeList);
         traversal(root.right, x + 1, y - 1, nodeList);
     }
