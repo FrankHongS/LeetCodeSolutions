@@ -26,12 +26,12 @@ public class Solution {
         ListNode l1 = LinkedListUtil.buildLinkedList(1, 2, 4);
         ListNode l2 = LinkedListUtil.buildLinkedList(1, 3, 4);
 
-        LinkedListUtil.printLinkedList(l1);
-        LinkedListUtil.printLinkedList(l2);
+        LinkedListUtil.print(l1);
+        LinkedListUtil.print(l2);
 
         ListNode merged = solution.mergeTwoList(l1, l2);
 
-        LinkedListUtil.printLinkedList(merged);
+        LinkedListUtil.print(merged);
 
     }
 

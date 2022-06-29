@@ -1,5 +1,6 @@
 package util;
 
+import javafx.util.Pair;
 import util.entity.ListNode;
 
 /**
@@ -8,8 +9,7 @@ import util.entity.ListNode;
  */
 public class LinkedListUtil {
 
-    public static void printLinkedList(ListNode root) {
-
+    public static void print(ListNode root) {
         if (root == null) {
             throw new RuntimeException("root can not be null");
         }
@@ -32,14 +32,31 @@ public class LinkedListUtil {
         }
 
         ListNode temp = new ListNode(vals[0]);
-        ListNode target = temp;
+        ListNode head = temp;
 
         for (int i = 1; i < vals.length; i++) {
             temp.next = new ListNode(vals[i]);
             temp = temp.next;
         }
 
-        return target;
+        return head;
+    }
+
+    public static Pair<ListNode, ListNode> buildLinkedListReturnEnds(int... vals) {
+
+        if (vals.length <= 0) {
+            return null;
+        }
+
+        ListNode tail = new ListNode(vals[0]);
+        ListNode head = tail;
+
+        for (int i = 1; i < vals.length; i++) {
+            tail.next = new ListNode(vals[i]);
+            tail = tail.next;
+        }
+
+        return new Pair<>(head, tail);
     }
 
     public static void printCycleLinkedList(ListNode target) {

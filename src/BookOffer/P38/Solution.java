@@ -74,9 +74,9 @@ public class Solution {
             return;
         }
         for (int i = startIndex; i <= chars.length - 1; i++) {
-            ArraysUtil.exchangeElements(chars, startIndex, i);
+            ArraysUtil.swapElements(chars, startIndex, i);
             doPermutation(chars, startIndex + 1, targetList);
-            ArraysUtil.exchangeElements(chars, startIndex, i);
+            ArraysUtil.swapElements(chars, startIndex, i);
         }
     }
 }

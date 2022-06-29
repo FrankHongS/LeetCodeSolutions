@@ -10,8 +10,8 @@ import util.entity.ListNode;
 public class Solution {
     public static void main(String[] args) {
         ListNode l1 = LinkedListUtil.buildLinkedList(1, 2, 3);
-        LinkedListUtil.printLinkedList(l1);
+        LinkedListUtil.print(l1);
         ListNode target = LinkedListUtil.revert(l1);
-        LinkedListUtil.printLinkedList(target);
+        LinkedListUtil.print(target);
     }
 }

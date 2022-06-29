@@ -8,7 +8,9 @@ import java.util.List;
 public class Test2 {
 
     public static void main(String[] args) {
-
+        Integer a=20;
+        Integer b=20;
+        System.out.println(a==b);
     }
 
     private List<Integer> findLostNum(int[] array) {

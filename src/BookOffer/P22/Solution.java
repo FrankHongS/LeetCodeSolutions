@@ -17,12 +17,39 @@ public class Solution {
         ListNode root = LinkedListUtil.buildLinkedList(1, 2, 3, 4, 5, 6);
         Solution solution = new Solution();
         int index = 3;
-        ListNode target = solution.indexOfByReverse(root, index);
+//        ListNode target = solution.indexOfByReverse(root, index);
+        ListNode target = solution.findKthToTail(root, index);
         System.out.println(target.value);
     }
 
     private ListNode indexOfByReverse(ListNode root, int index) {
         ListNode reverted = LinkedListUtil.revert(root);
         return LinkedListUtil.indexOf(reverted, index - 1);
+    }
+
+    /**
+     * 定义两个指针，第一个指针从链表头指针开始遍历向前走k-1步，第二个指针保持不动；
+     * 从第k步开始，第二个指针也开始从链表的头指针开始遍历。由于两个指针的距离保持在k-1，
+     * 当第一个到达尾节点时，第二个指针正好指向倒数第k个节点。
+     */
+    private ListNode findKthToTail(ListNode head, int k) {
+        if (head == null || k <= 0) {
+            return null;
+        }
+        ListNode ahead = head;
+        ListNode behind = head;
+
+        for (int i = 0; i < k - 1; i++) {
+            if (ahead.next != null) {
+                ahead = ahead.next;
+            } else {
+                return null;
+            }
+        }
+        while (ahead.next != null) {
+            ahead = ahead.next;
+            behind = behind.next;
+        }
+        return behind;
     }
 }

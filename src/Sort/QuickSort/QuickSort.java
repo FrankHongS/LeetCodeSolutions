@@ -8,64 +8,111 @@ import util.ArraysUtil;
  */
 public class QuickSort {
 
-    public void quickSort(int[] array) {
-        if (array == null || array.length <= 1) {
-            return;
-        }
-
-        quickSort(array, 0, array.length - 1);
+    public static void main(String[] args) {
+        QuickSort solution = new QuickSort();
+        int[] array = {1, 5, 3, 6, 9, 8};
+        ArraysUtil.print(array);
+        solution.quickSort(array, 0, array.length - 1);
+        ArraysUtil.print(array);
     }
 
-    private void quickSort(int[] array, int s, int e) {
-        if (e < s) {
+    private void quickSort(int[] array, int start, int end) {
+        int index = partition(array, start, end);
+        if (index > start + 1) {
+            quickSort(array, start, index - 1);
+        }
+        if (index < end - 1) {
+            quickSort(array, index + 1, end);
+        }
+    }
+
+    private int partition(int[] array, int start, int end) {
+        if (end < start || array == null) {
+            throw new RuntimeException("Invalid");
+        }
+        int length = end - start + 1;
+        if (length > array.length) {
+            throw new RuntimeException("Invalid");
+        }
+        int first = array[start];
+        int tempStart = start, tempEnd = end;
+        while (tempStart < tempEnd) {
+            for (int i = tempStart + 1; i <= end; i++) {
+                if (array[i] > first) {
+                    tempStart = i;
+                    break;
+                }
+            }
+            if (tempStart == start) {
+                ArraysUtil.swapElements(array, start, end);
+                return end;
+            }
+            for (int j = tempEnd; j > start; j--) {
+                if (array[j] < first) {
+                    tempEnd = j;
+                    break;
+                }
+            }
+            if (tempEnd == end) {
+                return start;
+            }
+            if (tempStart < tempEnd) {
+                ArraysUtil.swapElements(array, tempStart, tempEnd);
+            }
+        }
+        ArraysUtil.swapElements(array, start, tempEnd);
+        return tempEnd;
+    }
+
+    private void quickSort2(int[] array, int start, int end) {
+        if (end < start) {
             return;
         }
 
-        int a = array[s];
-        int c = s, d = e + 1;
+        int first = array[start];
+        int tempStart = start, tempEnd = end + 1;
 
         do {
-            for (int i = c + 1; i < e + 1; i++) {
-                if (array[i] > a) {
-                    c = i;
+            for (int i = tempStart + 1; i < end + 1; i++) {
+                if (array[i] > first) {
+                    tempStart = i;
                     break;
                 }
             }
 
-            for (int j = d - 1; j > s; j--) {
-                if (array[j] < a) {
-                    d = j;
+            for (int j = tempEnd - 1; j > start; j--) {
+                if (array[j] < first) {
+                    tempEnd = j;
                     break;
                 }
             }
 
-            if (c == s) {
+            if (tempStart == start) {
                 break;
             }
 
-            if (d == e + 1) {
+            if (tempEnd == end + 1) {
                 break;
             }
 
-            if (c < d) {
-                ArraysUtil.exchangeElements(array, c, d);
+            if (tempStart < tempEnd) {
+                ArraysUtil.swapElements(array, tempStart, tempEnd);
             }
-        } while (c < d);
+        } while (tempStart < tempEnd);
 
-        if (c == s) {
-            ArraysUtil.exchangeElements(array, s, e);
-            quickSort(array, s, e - 1);
+        if (tempStart == start) {
+            ArraysUtil.swapElements(array, start, end);
+            quickSort(array, start, end - 1);
             return;
         }
 
-        if (d == e + 1) {
-            quickSort(array, s + 1, e);
+        if (tempEnd == end + 1) {
+            quickSort(array, start + 1, end);
             return;
         }
 
-        ArraysUtil.exchangeElements(array, s, d);
-        quickSort(array, s, d - 1);
-        quickSort(array, d + 1, e);
+        ArraysUtil.swapElements(array, start, tempEnd);
+        quickSort(array, start, tempEnd - 1);
+        quickSort(array, tempEnd + 1, end);
     }
-
 }

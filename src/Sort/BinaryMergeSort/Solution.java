@@ -1,10 +1,20 @@
 package Sort.BinaryMergeSort;
 
+import util.ArraysUtil;
+
 /**
  * Created by Frank_Hon on 2018-03-08 (maybe, copied from the previous).
  * E-mail: frank_hon@foxmail.com
  */
-public class BinaryMergeSort {
+public class Solution {
+
+    public static void main(String[] args) {
+        int[] nums = {2, 1, 4, 3, 5, 8, 7};
+        Solution solution = new Solution();
+        ArraysUtil.print(nums);
+        solution.sort(nums);
+        ArraysUtil.print(nums);
+    }
 
     public void sort(int[] nums) {
 

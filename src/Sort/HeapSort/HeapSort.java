@@ -25,7 +25,7 @@ public class HeapSort {
         buildMaxHeap(array);
 
         for (int i = array.length - 1; i >= 1; i--) {
-            ArraysUtil.exchangeElements(array, 0, i);
+            ArraysUtil.swapElements(array, 0, i);
             maxHeap(array, i, 0);
         }
     }
@@ -56,7 +56,7 @@ public class HeapSort {
         }
 
         if (index != largest) {
-            ArraysUtil.exchangeElements(array, index, largest);
+            ArraysUtil.swapElements(array, index, largest);
             maxHeap(array, heapSize, largest);
         }
 

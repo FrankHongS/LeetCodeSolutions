@@ -6,25 +6,25 @@ package util;
  */
 public class ArraysUtil {
 
-    public static void exchangeElements(int[] array, int index1, int index2) {
+    public static void swapElements(int[] array, int index1, int index2) {
         int temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
     }
 
-    public static void exchangeElements(char[] array, int index1, int index2) {
+    public static void swapElements(char[] array, int index1, int index2) {
         char temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
     }
 
-    public static <E> void exchangeElements(E[] array, int index1, int index2) {
+    public static <E> void swapElements(E[] array, int index1, int index2) {
         E temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
     }
 
-    public static void printArray(int[] array) {
+    public static void print(int[] array) {
         System.out.print("[");
         for (int i = 0; i < array.length; i++) {
             if (i == array.length - 1) {

@@ -13,7 +13,7 @@ public class Solution {
             array[i] = 1 + i;
         }
 
-        ArraysUtil.printArray(solution.topK(array, 5));
+        ArraysUtil.print(solution.topK(array, 5));
     }
 
     private int[] topK(int[] array, int k) {
@@ -50,7 +50,7 @@ public class Solution {
         }
 
         if (temp != index) {
-            ArraysUtil.exchangeElements(array, index, temp);
+            ArraysUtil.swapElements(array, index, temp);
             buildMinHeap(array, temp);
         }
 

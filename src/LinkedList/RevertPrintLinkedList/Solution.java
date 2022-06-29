@@ -13,7 +13,7 @@ public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
         ListNode head = LinkedListUtil.buildLinkedList(1, 2, 3, 4, 5);
-        LinkedListUtil.printLinkedList(head);
+        LinkedListUtil.print(head);
         solution.revertPrintByIteration(head);
         System.out.println();
         solution.revertPrintByRecursion(head);
