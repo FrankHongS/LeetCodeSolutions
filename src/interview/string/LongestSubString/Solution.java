@@ -1,9 +1,10 @@
-package Interview.string.LongestSubString;
+package interview.string.LongestSubString;
 
 /**
  * Created by Frank_Hon on 2020/12/17 3:53 下午.
  * E-mail: frank_hon@foxmail.com
  * <p>
+ * 字节
  * 题目：给定一个字符串，请你找出其中不含有重复字符的 最长连续子串
  * 例如输入`abcabcbb`，输出`abc`
  */

@@ -1,4 +1,4 @@
-package Interview.recursive;
+package interview.recursive;
 
 import util.TreeUtil;
 import util.entity.TreeNode;

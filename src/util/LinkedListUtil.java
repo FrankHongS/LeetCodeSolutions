@@ -126,7 +126,7 @@ public class LinkedListUtil {
     public static ListNode revert(ListNode head) {
         ListNode newHead = null;
         while (head != null) {
-            ListNode temp = head.next;//保存旧链表除首元素外剩下的值
+            ListNode temp = head.next;//保存旧链表未反转的值
             head.next = newHead;//将旧链表的首元素连接到新链表的头部
             newHead = head;//更新新链表头部（首元素）
             head = temp;//更新旧链表头部（首元素）

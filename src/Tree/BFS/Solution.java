@@ -16,9 +16,7 @@ public class Solution {
     public static void main(String[] args) {
 
         Solution solution = new Solution();
-        TreeNode root = TreeUtil.buildCompleteBinaryTree(new Integer[]{
-                3, 9, 20, 1, 2, 15, 7
-        });
+        TreeNode root = TreeUtil.buildCompleteBinaryTree(3, 9, 20, 1, 2, 15, 7);
 
         TreeUtil.printTreePreOrder(root);
 //        System.out.println("level order:");
@@ -65,17 +63,17 @@ public class Solution {
         }
 
         LinkedList<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
+        queue.offer(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                TreeNode temp = queue.removeFirst();
-                System.out.print(temp.value);
+                TreeNode temp = queue.poll();
+                System.out.println(temp.value);
                 if (temp.left != null) {
-                    queue.add(temp.left);
+                    queue.offer(temp.left);
                 }
                 if (temp.right != null) {
-                    queue.add(temp.right);
+                    queue.offer(temp.right);
                 }
             }
         }

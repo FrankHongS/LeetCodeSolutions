@@ -58,7 +58,7 @@ public class Solution {
             temp[k++] = nums[j++];
         }
 
-        if (temp.length >= 0) System.arraycopy(temp, 0, nums, low, temp.length);
+        System.arraycopy(temp, 0, nums, low, temp.length);
     }
 
 }
