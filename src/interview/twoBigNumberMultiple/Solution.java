@@ -27,10 +27,10 @@ public class Solution {
         char[] resultChars = new char[length1 + length2];
         for (int i = length2 - 1; i >= 0; i--) {
             char char2 = chars2[i];
-            int int2 = char2 - '0';
+            int int2 = char2int(char2);
             for (int j = length1 - 1; j >= 0; j--) {
                 char char1 = chars1[j];
-                int int1 = char1 - '0';
+                int int1 = char2int(char1);
                 add(resultChars, i + j + 1, int2 * int1);
             }
         }
@@ -45,15 +45,22 @@ public class Solution {
         if (oldChar == '\0') {
             oldChar = '0';
         }
-        int origin = oldChar - '0';
+        int origin = char2int(oldChar);
         int newValue = origin + value;
-        int mod = newValue % 10;
-        int carry = newValue / 10;
-        char newChar = (char) (mod + '0');
+        int mod = newValue % 10; // 余数
+        int carry = newValue / 10; // 进位
+        char newChar = int2char(mod);
         chars[index] = newChar;
         if (carry != 0) {
             add(chars, index - 1, carry);
         }
     }
 
+    private int char2int(char c) {
+        return c - '0';
+    }
+
+    private char int2char(int i) {
+        return (char) (i + '0');
+    }
 }

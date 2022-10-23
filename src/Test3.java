@@ -9,6 +9,9 @@ public class Test3 {
     public static void main(String[] args) {
         float a=0.0f;
         System.out.println(String.format("%.6f",a));
+
+        String str1=new StringBuilder("hong").append("shuai").toString();
+        System.out.println(str1.intern()==str1);
     }
 
     private void quickSort(int[] array) {
