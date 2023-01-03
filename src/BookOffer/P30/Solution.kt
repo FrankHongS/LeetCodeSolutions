@@ -11,58 +11,61 @@ import java.util.*
  * Created by Frank_Hon on 2022/3/29 下午11:38.
  * E-mail: frank_hon@foxmail.com
  */
-object Solution {
-    private val so = A()
-    @JvmStatic
-    fun main(args: Array<String>) {
-        val stack = Stack<Int>()
-        stack.push(2)
-        stack.push(1)
-        stack.push(3)
-        stack.push(4)
-        stack.push(7)
-        println(stack.min())
-    }
+fun main() {
+    val stack = Stack<Int>()
+    stack.push(2, 1, 3, 4, 7)
+//    stack.pop(count = 1)
+    println(stack.min())
+}
 
-    private class A
-    private class Stack<T : Comparable<T>?> {
-        private val dataContainer: LinkedList<T>
-        private val minItemContainer: LinkedList<T>
-        fun push(item: T) {
-            dataContainer.push(item)
-            val min: T?
-            min = if (minItemContainer.isEmpty()) {
-                null
-            } else {
-                minItemContainer.first
-            }
-            if (min == null || item!!.compareTo(min) < 0) {
-                minItemContainer.push(item)
-            } else {
-                minItemContainer.push(min)
-            }
-        }
+private class Stack<T : Comparable<T>> {
 
-        fun pop(): T {
-            val target = dataContainer.pop()
-            val min = minItemContainer.pop()
-            if (target !== min) {
-                minItemContainer.push(min)
-            }
-            return target
-        }
+    private val data by lazy { LinkedList<T>() }
+    private val minItems by lazy { LinkedList<T>() }
 
-        fun min(): T? {
-            return if (minItemContainer.isEmpty()) {
-                null
-            } else {
-                minItemContainer.first
-            }
-        }
-
-        init {
-            dataContainer = LinkedList()
-            minItemContainer = LinkedList()
+    fun push(vararg items: T) {
+        items.forEach {
+            push(it)
         }
     }
+
+    fun push(item: T) {
+        data.push(item)
+        val min = if (minItems.isEmpty()) {
+            null
+        } else {
+            minItems.first
+        }
+        if (min == null || item < min) {
+            minItems.push(item)
+        } else {
+            minItems.push(min)
+        }
+    }
+
+    fun pop(count: Int): List<T> {
+        return mutableListOf<T>().apply {
+            val stackSize = size()
+            var tempCount = 0
+            while (tempCount < count && tempCount < stackSize) {
+                add(pop())
+                tempCount++
+            }
+        }
+    }
+
+    fun pop(): T {
+        minItems.pop()
+        return data.pop()
+    }
+
+    fun min(): T? {
+        return if (minItems.isEmpty()) {
+            null
+        } else {
+            minItems.first
+        }
+    }
+
+    fun size() = data.size
 }
