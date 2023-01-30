@@ -25,4 +25,12 @@ public class Util {
         }
         return sum;
     }
+
+    public static int min(int... values) {
+        int min = Integer.MAX_VALUE;
+        for (int value : values) {
+            min = Math.min(min, value);
+        }
+        return min;
+    }
 }
