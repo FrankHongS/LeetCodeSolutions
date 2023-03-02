@@ -1,16 +1,18 @@
+package interview.string.LongestCommonSubString;
+
 /**
  * Created by Frank_Hon on 2022/10/17 7:33 PM.
  * E-mail: frank_hon@foxmail.com
- *
+ * <p>
  * 两个字符串的最长公共子串 百度
  */
-public class Test7 {
+public class Solution {
 
     public static void main(String[] args) {
-        Test7 test7 = new Test7();
+        Solution solution = new Solution();
         String str1 = "abcdef";
         String str2 = "dabc";
-        System.out.println(test7.maxSubString(str1, str2));
+        System.out.println(solution.maxSubString(str1, str2));
     }
 
     private String maxSubString(String str1, String str2) {
