@@ -1,4 +1,4 @@
-package Others.queue;
+package Other.queue;
 
 import java.util.Stack;
 

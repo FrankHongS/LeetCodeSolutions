@@ -1,6 +1,4 @@
-package Others.hanoitower;
-
-import java.util.Stack;
+package Other.hanoitower;
 
 /**
  * Created by Frank_Hon on 2019-07-20 13:31.

@@ -1,4 +1,4 @@
-package Others.hanoitower;
+package Other.hanoitower;
 
 import java.util.Stack;
 

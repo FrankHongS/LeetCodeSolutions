@@ -1,4 +1,4 @@
-package Others.countMostInArray;
+package Other.countMostInArray;
 
 import java.util.HashMap;
 import java.util.Map;

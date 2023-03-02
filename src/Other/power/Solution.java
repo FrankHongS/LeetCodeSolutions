@@ -1,4 +1,4 @@
-package Others.power;
+package Other.power;
 
 /**
  * Created by Frank_Hon on 2020-05-17 18:09.

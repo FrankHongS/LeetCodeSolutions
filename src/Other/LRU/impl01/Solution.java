@@ -1,4 +1,4 @@
-package Others.LRU.impl01;
+package Other.LRU.impl01;
 
 import java.util.HashMap;
 

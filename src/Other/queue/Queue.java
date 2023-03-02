@@ -1,4 +1,4 @@
-package Others.queue;
+package Other.queue;
 
 /**
  * Created by Frank_Hon on 2019-07-20 12:00.

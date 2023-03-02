@@ -1,4 +1,4 @@
-package Others.martrix;
+package Other.martrix;
 
 /**
  * Created by Frank_Hon on 2019-08-28 09:33.

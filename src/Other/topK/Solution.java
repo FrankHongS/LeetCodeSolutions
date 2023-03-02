@@ -1,4 +1,4 @@
-package Others.topK;
+package Other.topK;
 
 import util.ArraysUtil;
 

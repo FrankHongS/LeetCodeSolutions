@@ -1,6 +1,4 @@
-package Others.maxAreaIsland;
-
-import util.Util;
+package Other.maxAreaIsland;
 
 /**
  * Created by Frank_Hon on 2022/7/24 2:41 PM.
