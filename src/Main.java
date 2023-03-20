@@ -5,7 +5,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         // 注意 hasNext 和 hasNextLine 的区别
-        while (in.hasNextInt()) { // 注意 while 处理多个 case
+        //hasNext是检查是否有非空字符。
+        //hasNextLine是检查输入中是否还有linePattern。其中LinePattern其实是匹配一个正则表达式
+        while (in.hasNext()) { // 注意 while 处理多个 case
             int a = in.nextInt();
             int b = in.nextInt();
             System.out.println(a + b);
